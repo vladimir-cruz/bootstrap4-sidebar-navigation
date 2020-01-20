@@ -1,535 +1,383 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>Menu side bar responsive multi level</title>
-      <!-- Bootstrap CSS CDN -->
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-      <!-- Font Awesome JS -->
-      <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-      <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
-
-      <style type="text/css">
-        /* ---------------------------------------------------
-    GENERAL STYLE
------------------------------------------------------ */
-
-a,
-a:hover,
-a:focus {
-  color: black!important;
-  text-decoration: none!important;
-  transition: all 0.3s;
-}
-
-.line {
-  width: 100%;
-  height: 1px;
-  border-bottom: 1px dashed #ddd;
-  margin: 40px 0;
-}
-
-.hide {
-  display: none;
-  border: 2px solid red;
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title></title>
+    <style>
+    .top_header{
+	background-color: rgba( 152, 0, 77, 1.000);
+	width: 100%;
 }
 
 
-/* ---------------------------------------------------
-    SEARCH STYLE
------------------------------------------------------ */
-
-.search-container {
-  margin-left: 75px;
-}
 
 
-/* ---------------------------------------------------
-    BODY
------------------------------------------------------ */
-
-.test {
-  background-image: url("https://a7e9g3w4.stackpathcdn.com/wp-content/uploads/2018/09/DIYheaderBG.jpg");
-  background-size: cover;
-  text-align: center;
-  padding-top: 75px;
-}
 
 
-/* ---------------------------------------------------
-    HORIZONTAL MENU
------------------------------------------------------ */
 
-nav .fa-bars {
-  font-size: 35px;
-  color: #8898aa;
-}
 
-nav #sidebarCollapse {
-  padding: 0 10px;
-}
+/* #Navigation
+================================================== */
 
-nav .close-sidebar {
-  text-align: right;
-  cursor: pointer;
-  padding: 20px;
-  font-weight: bold;
-}
-
-nav #content {
-  width: 100%;
-  min-height: 100vh;
-  transition: all 0.3s;
-}
-
-nav .main-nav li {
-  display: inline-block;
-}
-
-nav .main-nav .aaa li {
-  display: block;
-  width: 100%;
-}
-
-nav .main-nav .aaa ul {
-  padding-top: 15px;
-  padding-inline-start: 15px;
-}
-
-nav .main-nav .list-unstyled a {
-  background: #f5f5f5;
-  padding-left: 15px!important
-}
-
-nav .main-nav .sub-menu1 {
-  background: white;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, .1);
-  display: block;
-  float: none;
-  height: auto;
-  right: 300px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  text-align: left;
-  transition: opacity 80ms linear;
-  transition-delay: 0s;
-  width: 700px;
-  margin: 0 auto;
-  border-radius: 4px;
-  padding: 15px 20px;
-  top: -300px;
-}
-
-nav .main-nav .pioute:hover .sub-menu1 {
+.start-header {
   opacity: 1;
-  height: auto;
-  transition-delay: 150ms;
-  overflow: visible;
-  top: auto;
+  transform: translateY(0);
+  padding: 10px 0;
+  box-shadow: 0 10px 30px 0 rgba(138, 155, 165, 0.15);
+  -webkit-transition : all 0.3s ease-out;
+  transition : all 0.3s ease-out;
 }
-
-nav .main-nav .trt {
-  padding: 10px;
-  display: block;
+.start-header.scroll-on {
+  box-shadow: 0 5px 10px 0 rgba(138, 155, 165, 0.15);
+  padding: 5px 0;
+  -webkit-transition : all 0.3s ease-out;
+  transition : all 0.3s ease-out;
 }
-
-nav .main-nav li.aaa {
-  display: block;
-  float: left;
-  /* pointer-events: none; */
-  width: 25%;
-  border-right: 1px solid #f3f3f3;
-  margin: 15px 0;
+.start-header.scroll-on .navbar-brand img{
+  height: 28px;
+  -webkit-transition : all 0.3s ease-out;
+  transition : all 0.3s ease-out;
 }
+.navigation-wrap{
 
-nav .main-nav a.bbb {
-  background-color: rgba(0, 0, 0, 0);
-  display: block;
-  /* pointer-events: none; */
-  position: relative;
-  transition-delay: 0s, 0s;
-  transition-duration: 0.1s, 0.1s;
-  transition-property: color, background-color;
-  transition-timing-function: ease-in-out, ease-in-out;
-  font-weight: bold;
-  padding-left: 5px;
-}
-
-nav .main-nav a.bbb:hover {
-  color: #e20074;
-}
-
-nav .menu-first {
-  position: relative;
-  display: inline-block;
-  font-size: 0.9rem;
-  color: #666;
-  text-decoration: none;
-  transition: color .25s;
-  text-transform: uppercase;
-  color: black;
-  padding-bottom: 26px;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-weight: bold;
-  margin-left: 32px;
-}
-
-nav .menu-first:after {
-  position: absolute;
-  content: "";
-  left: 50%;
-  right: 50%;
-  bottom: 8px;
-  height: 2px;
-  background-color: #e20074;
-  -webkit-transition: left .25s, right .25s;
-  transition: left .25s, right .25s;
-}
-
-nav .menu-first:hover {
-  color: #e20074;
-}
-
-nav .menu-first:hover:after {
-  left: 10px;
-  right: 10px;
-}
-
-nav .mynav {
-  display: flex;
-  justify-content: space-between;
-  margin: 24px 0;
-}
-
-nav .mynav2 {
-  height: 12px;
-  display: flex;
-  justify-content: space-between;
-}
-
-nav .icon-list-icon {
-  color: #e20074;
-  font-size: 12px;
-  vertical-align: middle;
-  margin-right: 6px;
-}
-
-
-/* ---------------------------------------------------
-    VERTICAL RESPONSIVE MENU
------------------------------------------------------ */
-
-.wrapper {
-  display: flex;
   width: 100%;
-  align-items: stretch;
-}
-
-#sidebar {
-  z-index: 10000;
-  position: fixed;
-  width: 265px;
-  height: 100vh;
   top: 0;
-  z-index: 9999;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  min-width: 250px;
-  max-width: 250px;
-  background: white;
-  color: black;
-  transition: all 0.3s;
+  left: 0;
+  z-index: 1000;
+  -webkit-transition : all 0.3s ease-out;
+  transition : all 0.3s ease-out;
 }
-
-#sidebar .sidebar-submenu {
-  justify-content: space-between;
-  border-bottom: 1px solid #f3f3f3;
-  margin: 0 10px;
+.navbar{
+  padding: 0;
 }
-
-#sidebar .sidebar-submenu .link {
-  width: 100%;
-}
-
-#sidebar .sidebar-submenu .open {
-  background: #f5f5f5;
-  width: 45Px;
-  text-align: center;
-}
-
-#sidebar .sidebar-open {
-  background: #f3f3f3;
-  width: 40px;
-  text-align: center;
-}
-
-#sidebar ul p {
-  color: #fff;
-  padding: 10px;
-}
-
-#sidebar ul li a {
-  padding: 12px 0;
+.navbar-brand img{
+  height: 52px;
+  width: auto;
   display: block;
+  -webkit-transition : all 0.3s ease-out;
+  transition : all 0.3s ease-out;
 }
-
-#sidebar a[data-toggle="collapse"] {
+.navbar-toggler {
+  float: right;
+  border: none;
+  padding-right: 0;
+}
+.navbar-toggler:active,
+.navbar-toggler:focus {
+  outline: none;
+}
+.navbar-light .navbar-toggler-icon {
+  width: 24px;
+  height: 17px;
+  background-image: none;
   position: relative;
+  border-bottom: 1px solid #000;
+    transition: all 300ms linear;
 }
-
-#sidebar ul ul a {
-  font-size: 0.9em !important;
+.navbar-light .navbar-toggler-icon:after, 
+.navbar-light .navbar-toggler-icon:before{
+  width: 24px;
+  position: absolute;
+  height: 1px;
+  background-color: #000;
+  top: 0;
+  left: 0;
+  content: '';
+  z-index: 2;
+    transition: all 300ms linear;
 }
-
-#sidebar.active {
-  margin-left: -250px;
+.navbar-light .navbar-toggler-icon:after{
+  top: 8px;
 }
-
-#sidebar ul.components {
-  padding: 20px 0;
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+  transform: rotate(45deg);
 }
-
-#sidebar .list-unstyled a {
-  background: #f3f3f3;
-  padding-left: 15px;
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
+  transform: translateY(8px) rotate(-45deg);
 }
-
-
-/* ---------------------------------------------------
-    OVERLAY
------------------------------------------------------ */
-
-.slideout-overlay {
-  z-index: 5000;
-  position: fixed;
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+  border-color: transparent;
+}
+.nav-link{
+  color: #212121 !important;
+  font-weight: 500;
+    transition: all 200ms linear;
+}
+.nav-item:hover .nav-link{
+  color: #8167a9 !important;
+}
+.nav-item.active .nav-link{
+  color: #777 !important;
+}
+.nav-link {
+  position: relative;
+  padding: 5px 0 !important;
+  display: inline-block;
+}
+.nav-item:after{
+  position: absolute;
+  bottom: -5px;
+  left: 0;
   width: 100%;
-  height: 100%;
-  height: 100vh;
-  min-height: 100%;
-  background-color: rgba(0, 0, 0, .8);
-  visibility: hidden;
+  height: 2px;
+  content: '';
+  background-color: #8167a9;
   opacity: 0;
-  -webkit-transition: visibility .2s ease, opacity .2s ease;
-  -moz-transition: visibility .2s ease, opacity .2s ease;
-  -o-transition: visibility .2s ease, opacity .2s ease;
-  transition: visibility .2s ease, opacity .2s ease;
+    transition: all 200ms linear;
 }
-
-.slideout-overlay.active {
-  visibility: visible;
+.nav-item:hover:after{
+  bottom: 0;
   opacity: 1;
 }
-
-
-/* ---------------------------------------------------
-    MEDIAQUERIES
------------------------------------------------------ */
-
-@media (min-width: 992px) {
-  nav #sidebarCollapse {
-    display: none;
-  }
-  nav {
-    border: 1px solid #e4e4e4;
-    padding: 0 55px;
-  }
+.nav-item.active:hover:after{
+  opacity: 0;
+}
+.nav-item{
+  position: relative;
+    transition: all 200ms linear;
 }
 
-@media (max-width: 992px) {
-  nav .mynav2 {
+
+.nav-item .dropdown-menu {
+    transform: translate3d(0, 10px, 0);
+    visibility: hidden;
+    opacity: 0;
+  max-height: 0;
+    display: block;
+  padding: 0;
+  margin: 0;
+    transition: all 200ms linear;
+}
+.nav-item.show .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+  max-height: 999px;
+    transform: translate3d(0, 0px, 0);
+}
+.dropdown-menu {
+  padding: 10px!important;
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #212121;
+  background-color: #fcfaff;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 5px 10px 0 rgba(138, 155, 165, 0.15);
+    transition: all 200ms linear;
+}
+.dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown-item {
+  padding: 3px 15px;
+  color: #212121;
+  border-radius: 2px;
+    transition: all 200ms linear;
+}
+.dropdown-item:hover, 
+.dropdown-item:focus {
+  color: #fff;
+  background-color: rgba(129,103,169,.6);
+}
+
+
+
+
+
+@media (max-width: 767px) { 
+  h1{
+    font-size: 38px;
+  }
+  .nav-item:after{
     display: none;
   }
-  nav .mynav {
-    margin: 35px 10px;
+  .nav-item::before {
+    position: absolute;
+    display: block;
+    top: 15px;
+    left: 0;
+    width: 11px;
+    height: 1px;
+    content: "";
+    border: none;
+    background-color: #000;
+    vertical-align: 0;
   }
-}
-      </style>
-   </head>
-   <body>
-      <div class="wrapper">
-         <!-- Sidebar  -->
-         <nav id="sidebar" class="active">
-            <div id="sidebarCollapse2" class="close-sidebar active">
-               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  .dropdown-toggle::after {
+    position: absolute;
+    display: block;
+    top: 10px;
+    left: -23px;
+    width: 1px;
+    height: 11px;
+    content: "";
+    border: none;
+    background-color: #000;
+    vertical-align: 0;
+    transition: all 200ms linear;
+  }
+  .dropdown-toggle[aria-expanded="true"]::after{
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+  .dropdown-menu {
+    padding: 0 !important;
+    background-color: transparent;
+    box-shadow: none;
+    transition: all 200ms linear;
+  }
+  .dropdown-toggle[aria-expanded="true"] + .dropdown-menu {
+    margin-top: 10px !important;
+    margin-bottom: 20px !important;
+  }
+  
+   </style>
+    
+    
+
+</head>
+
+<body>
+    <header>
+        <div class="top_header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                    <div class="d-flex text-white">
+                        <div class="p-2 mr-auto"><i class="fa fa-envelope" aria-hidden="true"></i> info@uniqplushealthcure.com</div>
+                        <div class="p-2"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                        <div class="p-2"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                        <div class="p-2"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                        <div class="p-2"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                    </div>
+                </div>
+                </div>
+
             </div>
-            <ul class=" components">
-               <li class="active">
-                  <div class="d-flex sidebar-submenu">
-                     <a class="link" href="/">Home</a>
-                     <a class="open" href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="sidebar-open">
-                     <i id="sidebar-caret" class="fas fa-caret-down"></i>
-                     </a>
-                  </div>
-                  <ul class="collapse list-unstyled" id="homeSubmenu">
-                     <li>
-                        <a href="/test">Home 1</a>
-                     </li>
-                     <li>
-                        <a href="/test2">Home 2</a>
-                     </li>
-                     <li>
-                        <a href="/test3">Home 3</a>
-                     </li>
-                  </ul>
-               </li>
-               <li>
-                  <div class="d-flex sidebar-submenu">
-                     <a href="#">About</a>
-                  </div>
-               </li>
-               <li>
-                  <div class="d-flex sidebar-submenu">
-                     <a href="/">Page</a>
-                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="sidebar-open"><i class="fas fa-caret-down"></i></a>
-                  </div>
-                  <ul class="collapse list-unstyled" id="pageSubmenu">
-                     <li>
-                        <a href="#">Page 1</a>
-                     </li>
-                     <li>
-                        <a href="#">Page 2</a>
-                     </li>
-                     <li>
-                        <a href="#">Page 3</a>
-                     </li>
-                  </ul>
-               </li>
-               <li>
-                  <div class="d-flex sidebar-submenu">
-                     <a href="#">Portfolio</a>
-                  </div>
-               </li>
-               <li>
-                  <div class="d-flex sidebar-submenu">
-                     <a href="#">Contact</a>
-                  </div>
-               </li>
-            </ul>
-         </nav>
-         <div id="slideout-overlay" class="slideout-overlay "></div>
-         <div id="content">
-            <nav>
-               <div class="mynav">
-                  <div>
-                     - Logo -
-                  </div>
-                  <div id="sidebarCollapse">
-                     <i class="fas fa-bars"></i>
-                  </div>
-                  <div class="mynav2">
-                     <div id="primary-menu" class="main-nav">
-                        <ul id="menu-main-1">
-                           <li><a class="menu-first" href="" aria-current="page"><span class="icon-list-icon">
-                              <i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
-                              </span>Home</a>
-                           </li>
-                           <li class="pioute">
-                              <a class="menu-first" class="trt" href="#"><span class="icon-list-icon">
-                              <i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
-                              </span>Services<span role="presentation"></span></a>
-                              <ul class="sub-menu1">
-                                 <li class="aaa">
-                                    <a class="bbb" href="google.fr">Service 1</a>
-                                    <ul class="">
-                                       <li class=""><a class="" href="google.fr">Service Example</a></li>
-                                       <li><a href="google2.fr">Service 1b</a></li>
-                                       <li><a href="#">Service 1c</a></li>
-                                       <li><a href="#">Service 1d</a></li>
-                                    </ul>
-                                 </li>
-                                 <li class="aaa">
-                                    <a class="bbb" href="#">Service 2</a>
-                                    <ul>
-                                       <li><a href="#">Service 2a</a></li>
-                                       <li><a href="#">Service 2b</a></li>
-                                       <li><a href="#">Service 2c</a></li>
-                                       <li><a href="#">Service 2d</a></li>
-                                    </ul>
-                                 </li>
-                                 <li class="aaa">
-                                    <a class="bbb" href="#">Service 3<span role="presentation"></span></a>
-                                    <ul>
-                                       <li><a href="#">Service 3a</a></li>
-                                       <li><a href="#">Service 3b</a></li>
-                                       <li><a href="#">Service 3c</a></li>
-                                       <li><a href="#">Service 3d</a></li>
-                                    </ul>
-                                 </li>
-                                 <li class="aaa 2">
-                                    <a class="bbb" href="#">Service 4<span role="presentation"></span></a>
-                                    <ul>
-                                       <li><a href="#">Service 4a</a></li>
-                                       <li><a href="#">Service 4b</a></li>
-                                       <li><a href="#">Service 4c</a></li>
-                                       <li><a href="#">Service 4d</a></li>
-                                    </ul>
-                                 </li>
-                              </ul>
-                           </li>
-                           <li><a class="menu-first" href=""><span class="icon-list-icon">
-                              <i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
-                              </span>About</a>
-                           </li>
-                           <li><a class="menu-first" href=""><span class="icon-list-icon">
-                              <i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
-                              </span>Blog</a>
-                           </li>
-                           <li ><a class="menu-first" href=""><span class="icon-list-icon">
-                              <i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
-                              </span>Contact</a>
-                           </li>
-                        </ul>
-                     </div>
-                     <div class="search-container">
-                        <form action="/action_page.php">
-                           <input type="text" placeholder="Search.." name="search">
-                           <button type="submit">
-                           <i class="fa fa-search"></i>
-                           </button>
-                        </form>
-                     </div>
-                  </div>
-               </div>
-            </nav>
-            <div class="test">
-               <h2>Collapsible Sidebar Using Bootstrap 4</h2>
-               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-               <div class="line"></div>
-               <h2>Lorem Ipsum Dolor</h2>
-               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-               <div class="line"></div>
+        </div>
+        
+        <div class="navigation-wrap bg-light start-header start-style">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-md navbar-light">
+                    
+                        <a class="navbar-brand" href="https://themeforest.net/user/ig_design/portfolio" target="_blank"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/logo.svg" alt=""></a>    
+                        
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-auto py-4 py-md-0">
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link" href="#">Portfolio</a>
+                                </li>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link" href="#">Agency</a>
+                                </li>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link" href="#">Journal</a>
+                                </li>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link" href="#">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                    </nav>      
+                </div>
             </div>
-         </div>
-      </div>
-      <!-- jQuery CDN - Slim version (=without AJAX) -->
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-         <!-- Bootstrap JS -->
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+        </div>
+    </div>
+    </header>
 
 
-      <script type="text/javascript">
-         $(document).ready(function () {
-             $('#sidebarCollapse').on('click', function () {
-                 $('#sidebar').removeClass('active');
-                 $('#slideout-overlay').addClass('active');  
-             });
-              $('#sidebarCollapse2').on('click', function () {
-                 $('#sidebar').addClass('active'); 
-                 $('#slideout-overlay').removeClass('active');
-             });
-              $('#slideout-overlay').on('click', function () {
-                 $('#sidebar').addClass('active'); 
-                 $('#slideout-overlay').removeClass('active');
-             });
-         });
-      </script>
-   </body>
+
+
+
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        
+
+/* Please ❤ this if you like it! */
+
+
+(function($) { "use strict";
+
+    $(function() {
+        var header = $(".start-style");
+        $(window).scroll(function() {    
+            var scroll = $(window).scrollTop();
+        
+            if (scroll >= 10) {
+                header.removeClass('start-style').addClass("scroll-on");
+            } else {
+                header.removeClass("scroll-on").addClass('start-style');
+            }
+        });
+    });     
+        
+    //Animation
+    
+    $(document).ready(function() {
+        $('body.hero-anime').removeClass('hero-anime');
+    });
+
+    //Menu On Hover
+        
+    $('body').on('mouseenter mouseleave','.nav-item',function(e){
+            if ($(window).width() > 750) {
+                var _d=$(e.target).closest('.nav-item');_d.addClass('show');
+                setTimeout(function(){
+                _d[_d.is(':hover')?'addClass':'removeClass']('show');
+                },1);
+            }
+    }); 
+    
+    //Switch light/dark
+    
+    $("#switch").on('click', function () {
+        if ($("body").hasClass("dark")) {
+            $("body").removeClass("dark");
+            $("#switch").removeClass("switched");
+        }
+        else {
+            $("body").addClass("dark");
+            $("#switch").addClass("switched");
+        }
+    });  
+    
+  })(jQuery); 
+    </script>
+  
+</body>
+
 </html>
